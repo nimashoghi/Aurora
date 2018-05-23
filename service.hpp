@@ -54,7 +54,7 @@ using namespace std;
  \
     auto main(int argc, char **argv) -> int \
     { \
-		this_thread::sleep_for(5s); \
+        this_thread::sleep_for(5s); \
         /* init the service class */ \
         service_name = make_unique<service>( \
             #service_name, \
@@ -113,16 +113,16 @@ struct service
         status.dwServiceSpecificExitCode = NO_ERROR;
     }
 
-	auto report_status(DWORD current_state, DWORD controls_accepted = static_cast<DWORD>(-1), DWORD wait_hint = 0)
-	{
-		status.dwCurrentState = current_state;
-		if (controls_accepted != static_cast<DWORD>(-1))
-		{
-			status.dwControlsAccepted = controls_accepted;
-		}
+    auto report_status(DWORD current_state, DWORD controls_accepted = static_cast<DWORD>(-1), DWORD wait_hint = 0)
+    {
+        status.dwCurrentState = current_state;
+        if (controls_accepted != static_cast<DWORD>(-1))
+        {
+            status.dwControlsAccepted = controls_accepted;
+        }
         status.dwWaitHint = wait_hint;
-		return SetServiceStatus(status_handle, &status) ? true : false;
-	}
+        return SetServiceStatus(status_handle, &status) ? true : false;
+    }
 
     auto notify_start()
     {
