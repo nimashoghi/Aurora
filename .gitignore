@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# MSVC
+x64/
+
+# VS Code
+.vscode/
+
+# VS
+.vs/
