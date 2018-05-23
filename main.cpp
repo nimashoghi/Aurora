@@ -26,7 +26,7 @@ auto set_night_light_setting()
 {
     static const array<u8, sizeof...(Bytes)> bytes{Bytes...};
     constexpr auto registry_path =
-	    R"(Software\Microsoft\Windows\CurrentVersion\CloudStore\Store\Cache\DefaultAccount\$$windows.data.bluelightreduction.settings\Current)";
+        R"(Software\Microsoft\Windows\CurrentVersion\CloudStore\Store\Cache\DefaultAccount\$$windows.data.bluelightreduction.settings\Current)";
 
     HKEY key_handle;
     nt_assert(RegOpenKeyEx(HKEY_CURRENT_USER, registry_path, 0, KEY_READ | KEY_WRITE, &key_handle));
@@ -89,7 +89,7 @@ auto worker()
         const auto current_game_mode_value = is_game_mode_on();
         if (current_game_mode_value != last_game_mode_value)
         {
-			toggle_night_light(!current_game_mode_value);
+            toggle_night_light(!current_game_mode_value);
             last_game_mode_value = current_game_mode_value;
         }
         this_thread::sleep_for(100ms);
@@ -99,13 +99,13 @@ auto worker()
 inline auto already_running()
 {
     CreateMutex(nullptr, TRUE, "Aurora_Instance_Mutex");
-	return GetLastError() == ERROR_ALREADY_EXISTS;
+    return GetLastError() == ERROR_ALREADY_EXISTS;
 }
 
 
 auto main(int /* argc */, char ** /* argv */) -> int
 {
-	if (already_running())
+    if (already_running())
     {
         return 0;
     }
@@ -116,7 +116,7 @@ auto main(int /* argc */, char ** /* argv */) -> int
 
 auto __stdcall WinMain(HINSTANCE /* instance */, HINSTANCE /* prev_instance */, LPSTR /* cmd_line */, int /* cmd_show */) -> int
 {
-	if (already_running())
+    if (already_running())
     {
         return 0;
     }
