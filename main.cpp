@@ -125,7 +125,7 @@ auto __stdcall WinMain(HINSTANCE /* instance */, HINSTANCE /* prev_instance */, 
     return 0;
 }
 
-
+/*
 SERVICE_INIT(Aurora,
     {
         using namespace chrono;
@@ -143,4 +143,4 @@ SERVICE_INIT(Aurora,
 
         return 0;
     })
-
+ */
